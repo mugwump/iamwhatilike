@@ -31,8 +31,15 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem "capybara", :group => [:development, :test]
+
 gem "devise"
-gem "haml", ">= 3.0.0"
+
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-twitter"
+
+
+gem "haml", ">= 3.1.3"
 gem "haml-rails"
 gem "jquery-rails"
-gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
+gem "rspec-rails", ">= 2.7.0", :group => [:development, :test]
