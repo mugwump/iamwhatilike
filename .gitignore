@@ -7,8 +7,15 @@
 # Ignore bundler config
 /.bundle
 
+.idea
+.rake_tasks~
+myfavoritethings
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
+
+# Ignore the neo4j-installation
+/neo4j
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
