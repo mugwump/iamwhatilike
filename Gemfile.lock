@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/maxdemarzi/neography.git
-  revision: f48cfc7b905b0e4f5f81710d23e52a1531dcaefd
+  revision: c6bafa4e20998c68366e7d1963e7293efc32de09
   specs:
-    neography (0.0.16)
+    neography (0.0.17)
       httparty (~> 0.7.3)
       json
       os
@@ -40,6 +40,10 @@ GEM
     activesupport (3.1.3)
       multi_json (~> 1.0)
     addressable (2.2.6)
+    architect4r (0.3.4.2)
+      activemodel (~> 3.0)
+      json (~> 1.5)
+      typhoeus (~> 0.2)
     arel (2.2.1)
     builder (3.0.0)
     capybara (1.1.2)
@@ -82,8 +86,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.2)
-    json_pure (1.6.2)
+    json (1.6.3)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -160,11 +163,12 @@ GEM
       railties (~> 3.1.0)
       sass (~> 3.1.10)
       tilt (~> 1.3.2)
-    selenium-webdriver (2.13.0)
+    selenium-webdriver (2.14.0)
       childprocess (>= 0.2.1)
       ffi (~> 1.0.9)
-      json_pure
+      multi_json (~> 1.0.4)
       rubyzip
+    spork (0.9.0.rc9)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -174,6 +178,8 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    typhoeus (0.3.3)
+      mime-types
     tzinfo (0.3.31)
     uglifier (1.1.0)
       execjs (>= 0.3.0)
@@ -185,6 +191,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  architect4r
   capybara
   coffee-rails (~> 3.1.1)
   haml (>= 3.1.3)
@@ -199,4 +206,5 @@ DEPENDENCIES
   rails (= 3.1.3)
   rspec-rails (>= 2.7.0)
   sass-rails (~> 3.1.5)
+  spork (~> 0.9.0.rc)
   uglifier (>= 1.0.3)

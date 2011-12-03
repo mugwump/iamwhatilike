@@ -21,9 +21,9 @@ describe "Neography Integration" do
   end
 
   it "should be able to create a new node" do
-    node1 = neo.create_node("myattribute" => "test", "name" => "testnode")
+    node = neo.create_node("myattribute" => "test", "name" => "testnode")
 
-    node1.should_not be nil
+    node.should_not be nil
   end
 
 
