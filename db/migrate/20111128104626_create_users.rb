@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :uid
       t.string :name
 
+      t.string :usernode_id
+
       t.timestamps
     end
   end

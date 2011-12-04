@@ -14,4 +14,8 @@ describe Thing do
 
     thing.id
   end
+
+  it "should be owned by a user" do
+    pending "every thing should belong to a user (can users share things?!)"
+  end
 end
