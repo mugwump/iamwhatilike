@@ -7,8 +7,8 @@ gem 'rails', '3.1.3'
 
 gem 'pg'
 gem 'mysql2'
-gem 'neography', :git => "git://github.com/maxdemarzi/neography.git"
-gem 'architect4r'
+gem "mongoid", "~> 2.3"
+gem "bson_ext", "~> 1.4"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -37,6 +37,7 @@ gem "capybara", :group => [:development, :test]
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
+gem 'omniauth-tumblr'
 
 
 gem "haml", ">= 3.1.3"
@@ -44,3 +45,5 @@ gem "haml-rails"
 gem "jquery-rails"
 gem "rspec-rails", ">= 2.7.0", :group => [:development, :test]
 gem "spork", '~> 0.9.0.rc', :group => [:test]
+gem 'guard-spork', :group =>[:test]
+

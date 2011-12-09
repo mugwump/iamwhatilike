@@ -1,11 +1,10 @@
-class Thing < Architect4r::Model::Node 
+class Thing
+  include Mongoid::Document
 
-  property :name, :cast_to => String 
-  timestamps!
+  field :name, type: String
 
-  # Validations 
-  validates :name, :presence => true
 
+  validates_presence_of :name
 
 
 end

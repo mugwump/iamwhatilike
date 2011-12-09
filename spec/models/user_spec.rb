@@ -31,20 +31,20 @@ describe User do
   it "should be assigned a user-node in neo4j" do 
      user = User.create_with_omniauth(auth)
 
-     user.node.should_not be nil
+     user.account.should_not == nil
 
 
   end
 
-  it "should have a user-node, when read from the database" do 
+  it "should have an account, when read from the database" do
     user = User.create_with_omniauth(auth)
     id = user.id
 
     retrieved_user = User.find(id)
 
     
-    retrieved_user.node.should_not be nil
-    retrieved_user.node.user_id.should eql id.to_s
+    retrieved_user.account.id.should_not == nil
+
 
 
   end

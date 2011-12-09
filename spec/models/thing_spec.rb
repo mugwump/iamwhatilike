@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Thing do
 
   it "should have a name and an optional description" do
-    thing = Thing.new
+    thing = Thing.create
 
     thing.should_not be_valid
 
@@ -12,7 +12,7 @@ describe Thing do
     thing.should be_valid
     thing.save
 
-    thing.id
+    thing.id.should_not be nil
   end
 
   it "should be owned by a user" do

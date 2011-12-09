@@ -1,7 +1,6 @@
-class List < Architect4r::Model::Node
-  
-  property :name, :cast_to => String
-  timestamps!
+class List
+  include Mongoid::Document
 
+  field :name, type: String, :allow_nil => false
 
 end

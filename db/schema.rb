@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20111128104626) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.string   "usernode_id"
+    t.string   "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

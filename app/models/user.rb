@@ -1,17 +1,17 @@
-class User < ActiveRecord::Base
+class User
+  include Mongoid::Document
 
-  after_create :assign_node
+  after_create :assign_account
 
-  def assign_node
-    @usernode = Usernode.new(:user_id => self.id)
-    @usernode.save
-    
-    update_attribute(:usernode_id,@usernode.id)
+  field :provider, type: String, :allow_nil => false
+  field :uid, type: String, :allow_nil => false
+  field :name, type: String, :allow_nil => false
 
-  end
+  has_one :account
 
-  def node
-    @usernode ||= Usernode.find_by_id(self.usernode_id)
+  def assign_account
+    @account = Account.create(:user_id => self.id)
+    @account.save
   end
 
   def self.create_with_omniauth(auth)
@@ -21,10 +21,6 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
     end
-    
-  
-
-
 
   end
 end
