@@ -43,7 +43,15 @@ gem 'omniauth-tumblr'
 gem "haml", ">= 3.1.3"
 gem "haml-rails"
 gem "jquery-rails"
-gem "rspec-rails", ">= 2.7.0", :group => [:development, :test]
-gem "spork", '~> 0.9.0.rc', :group => [:test]
-gem 'guard-spork', :group =>[:test]
+
+
+
+group :test do
+  gem "rspec-rails", ">= 2.7.0"
+  gem "database_cleaner"
+  gem "spork", '~> 0.9.0.rc'
+  gem 'guard-spork'
+  gem "factory_girl"
+  gem 'factory_girl_rails'
+end
 
