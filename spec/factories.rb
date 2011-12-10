@@ -7,10 +7,6 @@ FactoryGirl.define do
     name  'test'
   end
 
-  factory :account do
-    user { |account| account.association(:user)}
-  end
-
   factory :thing do
     name "A Thinng"
   end

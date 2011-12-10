@@ -2,9 +2,11 @@ require 'spec_helper'
 
 describe List do
 
+  let(:user) { Factory(:user)}
+
   it "should be valid with an account and a name" do
 
-    account = Factory(:account)
+    account = user.account
     list = List.create(account: account, name: "Test")
 
 
@@ -19,7 +21,7 @@ describe List do
   end
 
   it "should accept things" do 
-    account = Factory(:account)
+    account = user.account
     list = List.create(account: account, name: "Test")
 
     thing = Thing.create(name: "A Thing")
@@ -31,7 +33,7 @@ describe List do
 
   it "should add the thing to the list of things of the owner of the list" do
 
-    account = Factory(:account)
+    account = user.account
 
     list = List.create(account: account, name: "Test")
     toy = Factory(:toy)

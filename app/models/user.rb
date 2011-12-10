@@ -10,7 +10,7 @@ class User
   has_one :account
 
   def assign_account
-    @account = Account.create(:user_id => self.id)
+    @account = Account.create(:user => self)
     @account.save
   end
 
