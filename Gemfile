@@ -44,6 +44,8 @@ gem "haml", ">= 3.1.3"
 gem "haml-rails"
 gem "jquery-rails"
 
+# content-integrations
+gem "youtube_it"
 
 
 group :test do

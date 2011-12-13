@@ -50,5 +50,7 @@ module Myfavoritethings
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.youtubeit.devkey ="AI39si7mK4HvkIdX09csadcHOYDjyN6eiVEwpD7Nm2fWuXoCMOcjZZ41dbLN7OID09JK5M1WEg7azaRUdiu4rboxsHvOIB2Zdg"
   end
 end
