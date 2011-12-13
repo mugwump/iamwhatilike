@@ -37,7 +37,7 @@ gem "capybara", :group => [:development, :test]
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
-gem 'omniauth-tumblr'
+gem "omniauth-tumblr"
 
 
 gem "haml", ">= 3.1.3"

@@ -6,6 +6,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
@@ -51,6 +52,6 @@ module Myfavoritethings
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.youtubeit.devkey ="AI39si7mK4HvkIdX09csadcHOYDjyN6eiVEwpD7Nm2fWuXoCMOcjZZ41dbLN7OID09JK5M1WEg7azaRUdiu4rboxsHvOIB2Zdg"
+    config.youtube_devkey ="AI39si7mK4HvkIdX09csadcHOYDjyN6eiVEwpD7Nm2fWuXoCMOcjZZ41dbLN7OID09JK5M1WEg7azaRUdiu4rboxsHvOIB2Zdg"
   end
 end
