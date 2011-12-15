@@ -27,6 +27,14 @@ describe User do
 
   end
 
+  it "should be found with a given uid and provider-id" do
+    new_user = User.create_with_omniauth(auth)
+
+    user = User.where(:provider => auth["provider"], :uid => auth["uid"]).first
+    user.should_not be nil
+    user.id.should == new_user.id
+  end
+
 
   it "should be assigned a user-node in neo4j" do 
      user = User.create_with_omniauth(auth)

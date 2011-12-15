@@ -46,7 +46,8 @@ gem "jquery-rails"
 
 # content-integrations
 gem "youtube_it"
-
+gem "imdb_party"
+gem "google-api-client", :require => "google/api_client"
 
 group :test do
   gem "rspec-rails", ">= 2.7.0"

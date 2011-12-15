@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   factory :thing do
-    name "A Thinng"
+    name "A Thing"
   end
 
   factory :toy, :parent => :thing do
