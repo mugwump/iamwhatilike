@@ -1,1 +1,8 @@
 %h1 Hi there, glad you're here.
+
+-if flash[:notice]
+  Notice:
+  %em= flash[:notice]
+= form_tag :tweet do
+  = text_field_tag :text
+  = button_tag "Tweet"

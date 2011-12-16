@@ -10,6 +10,8 @@ gem 'mysql2'
 gem "mongoid", "~> 2.3"
 gem "bson_ext", "~> 1.4"
 
+gem 'twitter', '~> 2.0.2'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

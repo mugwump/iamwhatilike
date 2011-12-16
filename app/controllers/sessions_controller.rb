@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     auth = request.env["omniauth.auth"]
 
-    logger.info "am i authorized or what?!!"
+    logger.info auth
     user = User.where(:provider => auth["provider"], :uid => auth["uid"]).first || User.create_with_omniauth(auth)
 
     session[:user_id] = user.id
