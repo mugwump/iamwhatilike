@@ -51,8 +51,10 @@ gem "youtube_it"
 gem "imdb_party"
 gem "google-api-client", :require => "google/api_client"
 
+
+gem "rspec-rails", ">= 2.7.0", :group => [:test]
+ 
 group :test do
-  gem "rspec-rails", ">= 2.7.0"
   gem "database_cleaner"
   gem "spork", '~> 0.9.0.rc'
   gem 'guard-spork'

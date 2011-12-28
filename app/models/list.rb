@@ -1,3 +1,4 @@
+# TODO: add some more functionality here...
 class List
   include Mongoid::Document
 
