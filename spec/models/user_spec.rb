@@ -5,7 +5,7 @@ describe User do
   let(:auth) do 
 
     auth = {}
-    auth["provider"] = "foo"
+    auth["provider"] = "twitter"
     auth["uid"] = "bar"
     auth["info"]= {"name" => "baz"}
 
@@ -20,23 +20,20 @@ describe User do
     user = User.create_with_omniauth(auth)
 
     user.should_not be nil
-    user.provider.should == "foo"
-    user.uid.should == "bar"
-    user.name.should == "baz"
-
+    user.authorizations.should_not == nil
+    user.authorizations.length.should == 1
 
   end
 
   it "should be found with a given uid and provider-id" do
     new_user = User.create_with_omniauth(auth)
 
-    user = User.where(:provider => auth["provider"], :uid => auth["uid"]).first
+    user = User.find_by_authorization(auth["provider"], auth["uid"])
     user.should_not be nil
-    user.id.should == new_user.id
   end
 
 
-  it "should be assigned a user-node in neo4j" do 
+  it "should have an assigned account when created" do 
      user = User.create_with_omniauth(auth)
 
      user.account.should_not == nil

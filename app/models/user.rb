@@ -3,15 +3,14 @@ class User
 
   after_create :assign_account
 
-  field :provider, type: String, :allow_nil => false
-  field :uid, type: String, :allow_nil => false
-  field :name, type: String, :allow_nil => false
-  
-  # twitter fields
-  field :token
-  field :secret
 
-  has_one :account
+  has_one   :account
+  has_many  :authorizations
+  
+  def self.find_by_authorization(provider, user_id)
+    authorization = Authorization.where(provider: provider, uid: user_id).first
+    authorization.user
+  end
   
   def twitter
     unless @twitter_user
@@ -29,13 +28,19 @@ class User
   def self.create_with_omniauth(auth)
 
     user = create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
+      if auth["provider"] == "twitter"
+        authorization = TwitterAuthorization.new
+        authorization.provider = auth["provider"]
+        authorization.uid = auth["uid"]
+          authorization.user_name = auth["info"]["name"]
       
-      # token&secret to allow posting
-      user.token  = auth['credentials']['token'] rescue nil
-      user.secret = auth['credentials']['secret'] rescue nil
+        # token&secret to allow posting
+        authorization.token  = auth['credentials']['token'] rescue nil
+        authorization.secret = auth['credentials']['secret'] rescue nil
+        user.authorizations << authorization
+        authorization.save!
+      end
+      
     end
 
   end

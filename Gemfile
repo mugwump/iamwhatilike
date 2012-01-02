@@ -52,7 +52,7 @@ gem "imdb_party"
 gem "google-api-client", :require => "google/api_client"
 
 
-gem "rspec-rails", ">= 2.7.0", :group => [:test]
+gem "rspec-rails", ">= 2.7.0", :group => [:development, :test]
  
 group :test do
   gem "database_cleaner"
