@@ -32,26 +32,4 @@ describe User do
     user.should_not be nil
   end
 
-
-  it "should have an assigned account when created" do 
-     user = User.create_with_omniauth(auth)
-
-     user.account.should_not == nil
-
-
-  end
-
-  it "should have an account, when read from the database" do
-    user = User.create_with_omniauth(auth)
-    id = user.id
-
-    retrieved_user = User.find(id)
-
-    
-    retrieved_user.account.id.should_not == nil
-
-
-
-  end
-
 end

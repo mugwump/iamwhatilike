@@ -1,10 +1,9 @@
 class User
   include Mongoid::Document
 
-  after_create :assign_account
+  has_many :lists
+  has_many :things
 
-
-  has_one   :account
   has_many  :authorizations
   
   def self.find_by_authorization(provider, user_id)
@@ -18,11 +17,6 @@ class User
     end
     
     @twitter_user
-  end
-
-  def assign_account
-    @account = Account.create(:user => self)
-    @account.save
   end
 
   def self.create_with_omniauth(auth)

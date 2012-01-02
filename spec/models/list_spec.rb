@@ -2,14 +2,18 @@ require 'spec_helper'
 
 describe List do
 
-  let(:user) { Factory(:user)}
+  let(:user) do 
+    auth = {}
+    auth["provider"] = "twitter"
+    auth["uid"] = "bar"
+    auth["info"]= {"name" => "baz"}
+    
+    new_user = User.create_with_omniauth(auth)
+  end
 
   it "should be valid with an account and a name" do
 
-    account = user.account
-    list = List.create(account: account, name: "Test")
-
-
+    list = List.create(owner: user, name: "Test")
     list.should be_valid
   end
 
@@ -21,8 +25,7 @@ describe List do
   end
 
   it "should accept things" do 
-    account = user.account
-    list = List.create(account: account, name: "Test")
+    list = List.create(owner: user, name: "Test")
 
     thing = Thing.create(name: "A Thing")
 
@@ -33,14 +36,12 @@ describe List do
 
   it "should add the thing to the list of things of the owner of the list" do
 
-    account = user.account
-
-    list = List.create(account: account, name: "Test")
+    list = List.create(owner: user, name: "Test")
     toy = Factory(:toy)
 
     list.add_thing toy
 
-    account.things.should include toy
+    list.things.should include toy
 
   end
 
